@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="emerald">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ethan@csu:~/portfolio — Ethan Sheffield</title>
+  <meta name="description" content="Interactive 1-page terminal portfolio for Ethan Sheffield — Computer Science B.S. candidate at Colorado State University (4.0 GPA)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="terminal-backdrop" aria-hidden="true"></div>
+
+  <main class="terminal-shell" role="application" aria-label="Interactive Terminal Portfolio">
+    <!-- Window Titlebar -->
+    <header class="terminal-titlebar">
+      <div class="window-controls" aria-hidden="true">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+      </div>
+      <div class="window-title">
+        <span class="prompt-user">ethan@csu</span>:<span class="prompt-path" id="title-path">~/portfolio</span>
+      </div>
+      <div class="titlebar-actions">
+        <label class="theme-label" for="theme-select">theme:</label>
+        <select id="theme-select" class="theme-select" aria-label="Select terminal color theme">
+          <option value="emerald">emerald</option>
+          <option value="amber">amber</option>
+          <option value="cobalt">cobalt</option>
+          <option value="light">light</option>
+        </select>
+      </div>
+    </header>
+
+    <!-- Sticky Section-Jump Tabs -->
+    <nav class="quick-bar" aria-label="Jump to portfolio sections">
+      <a href="#overview" class="cmd-chip is-active" data-section="overview">~/overview</a>
+      <a href="#projects" class="cmd-chip" data-section="projects">./projects</a>
+      <a href="#skills" class="cmd-chip" data-section="skills">./skills</a>
+      <a href="#experience" class="cmd-chip" data-section="experience">./experience</a>
+      <a href="#education" class="cmd-chip" data-section="education">./education</a>
+      <a href="#contact" class="cmd-chip" data-section="contact">./contact</a>
+      <button type="button" id="help-toggle" class="cmd-chip chip-subtle">? help</button>
+    </nav>
+
+    <!-- 1-Page Scrollable Terminal Viewport -->
+    <section id="terminal-output" class="terminal-output" tabindex="0">
+      <div id="cli-feedback" class="cli-feedback" aria-live="polite"></div>
+
+      <!-- 1. Overview -->
+      <section id="overview" class="term-section" data-section="overview">
+        <div class="cmd-echo">
+          <span class="prompt-user">ethan@csu</span>:<span class="prompt-path">~</span><span class="prompt-symbol">$</span>
+          <span class="typing-cursor">whoami --overview</span>
+        </div>
+        <div id="overview-content"></div>
+      </section>
+
+      <!-- 2. Projects -->
+      <section id="projects" class="term-section" data-section="projects">
+        <div class="cmd-echo">
+          <span class="prompt-user">ethan@csu</span>:<span class="prompt-path">~</span><span class="prompt-symbol">$</span>
+          <span>ls ./projects</span>
+        </div>
+        <div id="projects-content"></div>
+      </section>
+
+      <!-- 3. Skills -->
+      <section id="skills" class="term-section" data-section="skills">
+        <div class="cmd-echo">
+          <span class="prompt-user">ethan@csu</span>:<span class="prompt-path">~</span><span class="prompt-symbol">$</span>
+          <span>skills --grouped</span>
+        </div>
+        <div id="skills-content"></div>
+      </section>
+
+      <!-- 4. Experience -->
+      <section id="experience" class="term-section" data-section="experience">
+        <div class="cmd-echo">
+          <span class="prompt-user">ethan@csu</span>:<span class="prompt-path">~</span><span class="prompt-symbol">$</span>
+          <span>cat experience/manders_art.md</span>
+        </div>
+        <div id="experience-content"></div>
+      </section>
+
+      <!-- 5. Education -->
+      <section id="education" class="term-section" data-section="education">
+        <div class="cmd-echo">
+          <span class="prompt-user">ethan@csu</span>:<span class="prompt-path">~</span><span class="prompt-symbol">$</span>
+          <span>cat education/degrees.md</span>
+        </div>
+        <div id="education-content"></div>
+      </section>
+
+      <!-- 6. Contact -->
+      <section id="contact" class="term-section" data-section="contact">
+        <div class="cmd-echo">
+          <span class="prompt-user">ethan@csu</span>:<span class="prompt-path">~</span><span class="prompt-symbol">$</span>
+          <span>contact --links</span>
+        </div>
+        <div id="contact-content"></div>
+      </section>
+    </section>
+
+    <!-- Interactive CLI Prompt -->
+    <form id="terminal-form" class="terminal-input-row" autocomplete="off">
+      <label for="cli-input" class="prompt-label">
+        <span class="prompt-user">ethan@csu</span>:<span class="prompt-path">~</span><span class="prompt-symbol">$</span>
+      </label>
+      <div class="input-wrapper">
+        <input
+          id="cli-input"
+          class="cli-input"
+          type="text"
+          spellcheck="false"
+          autocapitalize="off"
+          autocomplete="off"
+          placeholder="Jump via CLI: 'projects', 'cat tankscii', 'theme light', 'contact', or 'help'..."
+          aria-label="Terminal command input"
+        />
+      </div>
+    </form>
+
+    <!-- Status Footer -->
+    <footer class="terminal-statusbar">
+      <span><span class="status-dot"></span>Fort Collins, CO · B.S. CS May 2027 (4.0 GPA)</span>
+      <span>Tab autocomplete · ↑/↓ history</span>
+    </footer>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
