@@ -6,7 +6,6 @@ const DATA = {
     location: "Fort Collins, CO",
     availability: "Available May/June 2027",
     email: "ethan.sheffield@colostate.edu",
-    phone: "307-258-2374",
     github: "https://github.com/esheffield48",
     linkedin: "https://www.linkedin.com/in/ethan-sheffield-616452388"
   },
@@ -251,7 +250,6 @@ function renderContact() {
       <div class="term-card">
         <div class="term-card-title" style="margin-bottom:6px;">Direct Contact</div>
         <div class="card-summary">Email: <a class="accent" href="mailto:${esc(p.email)}">${esc(p.email)}</a></div>
-        <div class="card-summary">Phone: <span class="secondary">${esc(p.phone)}</span></div>
         <div class="muted" style="font-size:12px;">${esc(p.location)} · ${esc(p.availability)}</div>
       </div>
       <div class="term-card">
